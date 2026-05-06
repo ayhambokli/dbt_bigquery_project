@@ -1,7 +1,6 @@
-````markdown
 # 🔷 End-to-End Data Engineering Project: dbt, BigQuery & GitHub
 
-> A complete ELT data engineering project integrating dbt with Google BigQuery to perform data transformations on a dataset containing **1 million+ records**. The entire pipeline is built step by step, including data modeling, transformations, and version control using GitHub.
+> This project demonstrates how to integrate **dbt (Data Build Tool)** with **Google BigQuery** to perform data transformations on a dataset containing **1 million+ records**. The entire pipeline is built step by step, including data modeling, transformations, and version control using GitHub.
 
 ---
 
@@ -17,21 +16,20 @@
 
 ## 🔁 Data Flow
 
-    🔵 Extract          🔵 Load             🟠 Transform          🟣 Output
-    ──────────          ──────────          ──────────────        ──────────
-    BigQuery SQL   →    BigQuery       →    dbt + Jinja      →    BigQuery
-    1M+ rows            Raw dataset         stage_sales.sql       sales_final
-    generated           stored              sales_final.sql       views
+![Pipeline](YOUR_IMAGE_URL_HERE)
 
 ---
 
 ## 📌 Project Overview
 
-- 🗄️ **Generate Sample Data** — Create a synthetic dataset of **1M+ records** in BigQuery
-- ⚙️ **Set Up dbt** — Configure dbt to work with BigQuery for efficient data transformations
-- 🧱 **Develop dbt Models** — Implement **staging and transformation models** using SQL & Jinja macros
-- 🐙 **Use GitHub for Version Control** — Track changes, collaborate, and manage dbt project files
-- ▶️ **Run dbt Pipelines** — Execute transformations and validate results in BigQuery
+| # | Step | Description |
+|---|------|-------------|
+| 1 | 🔵 **Extract** | Generate **1M+ rows** of synthetic sales data directly in BigQuery using SQL |
+| 2 | 🟢 **Load** | Store raw table as-is in a BigQuery dataset — no transformation yet |
+| 3 | 🟠 **Staging** | dbt `stage_sales.sql` — clean data & apply `dynamic_partition` Jinja macro |
+| 4 | 🟣 **Final model** | dbt `sales_final.sql` — aggregate revenue by product |
+| 5 | 🟡 **Output** | Analytics-ready BigQuery views + dbt docs lineage graph |
+| 6 | ⚫ **GitHub** | Full project version controlled and pushed to GitHub via SSH |
 
 ---
 
@@ -39,31 +37,32 @@
 
     dbt_bigquery_project/
     ├── 📂 models/
-    │   ├── 📂 staging/          # Raw data staging models
+    │   ├── 📂 staging/               # Raw data staging models
     │   │   └── 📄 stage_sales.sql
-    │   └── 📂 marts/            # Final transformed models
+    │   └── 📂 marts/                 # Final transformed models
     │       └── 📄 sales_final.sql
-    ├── 📂 macros/               # Reusable Jinja macros
+    ├── 📂 macros/                    # Reusable Jinja macros
     │   └── 📄 dynamic_partition.sql
-    ├── 📂 seeds/                # Static CSV data for dbt seeds
+    ├── 📂 seeds/                     # Static CSV data for dbt seeds
     ├── 📂 tests/
     │   └── 📄 sales_test.yml
-    ├── 📄 dbt_project.yml       # dbt project configuration
-    ├── 📄 profiles.yml          # BigQuery credentials (not included for security reasons)
-    ├── 📄 .gitignore            # Specifies files to be excluded from GitHub
-    └── 📄 README.md             # Project documentation
+    ├── 📄 dbt_project.yml            # dbt project configuration
+    ├── 📄 profiles.yml               # BigQuery credentials (not included for security)
+    ├── 📄 .gitignore
+    └── 📄 README.md
 
 ---
 
 ## 🧰 Technologies Used
 
-| Tool | Purpose |
-|------|---------|
-| ![dbt](https://img.shields.io/badge/dbt-FF694A?style=flat&logo=dbt&logoColor=white) | SQL-based data transformation |
-| ![BigQuery](https://img.shields.io/badge/BigQuery-4285F4?style=flat&logo=google-cloud&logoColor=white) | Cloud data warehouse |
-| ![GitHub](https://img.shields.io/badge/GitHub-24292E?style=flat&logo=github&logoColor=white) | Version control for dbt project |
-| ![Jinja](https://img.shields.io/badge/Jinja-B41717?style=flat&logo=jinja&logoColor=white) | Dynamic SQL for reusable transformations |
-| ![SQL](https://img.shields.io/badge/SQL-336791?style=flat&logo=postgresql&logoColor=white) | Data modeling and transformation |
+| Badge | Tool | Purpose |
+|-------|------|---------|
+| ![dbt](https://img.shields.io/badge/dbt-FF694A?style=flat&logo=dbt&logoColor=white) | dbt (Data Build Tool) | SQL-based data transformation |
+| ![BigQuery](https://img.shields.io/badge/BigQuery-4285F4?style=flat&logo=google-cloud&logoColor=white) | Google BigQuery | Cloud data warehouse |
+| ![GitHub](https://img.shields.io/badge/GitHub-24292E?style=flat&logo=github&logoColor=white) | GitHub | Version control |
+| ![Jinja](https://img.shields.io/badge/Jinja-B41717?style=flat&logo=jinja&logoColor=white) | Jinja macros | Dynamic SQL for reusable transformations |
+| ![SQL](https://img.shields.io/badge/SQL-336791?style=flat&logo=postgresql&logoColor=white) | SQL | Data modeling and transformation |
+| ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) | Python 3.7+ | Runtime environment for dbt |
 
 ---
 
@@ -104,4 +103,7 @@ Update `profiles.yml` with your BigQuery project details, then authenticate with
 
 [![GitHub](https://img.shields.io/badge/GitHub-ayhambokli-24292E?style=flat&logo=github)](https://github.com/ayhambokli)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/your-profile)
-````
+
+---
+
+> ⭐ If you found this project useful, feel free to star the repo!
