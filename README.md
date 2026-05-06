@@ -97,7 +97,6 @@ Update `profiles.yml` with your BigQuery project details, then authenticate with
 
 ---
 
-## 👤 Author
 
 **Ayham** — Data Analyst
 
