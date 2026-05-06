@@ -105,4 +105,3 @@ Update `profiles.yml` with your BigQuery project details, then authenticate with
 
 ---
 
-> ⭐ If you found this project useful, feel free to star the repo!
